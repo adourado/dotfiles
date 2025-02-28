@@ -1,0 +1,34 @@
+;; defsrc is still necessary
+(defcfg
+  process-unmapped-keys yes
+  windows-altgr add-lctl-release
+)
+
+(defsrc
+  caps a s d f j k l ; h
+)
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  capsswitch (tap-hold 100 100 caps (layer-toggle arrows))
+  a (tap-hold $tap-time $hold-time a lctl)
+  s (tap-hold $tap-time $hold-time s lsft)
+  d (tap-hold $tap-time $hold-time d lalt)
+  f (tap-hold $tap-time $hold-time f lmet)
+  j (tap-hold $tap-time $hold-time j rctl)
+  k (tap-hold $tap-time $hold-time k rsft)
+  l (tap-hold $tap-time $hold-time l lalt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+)
+
+(deflayer base
+  @capsswitch @a @s @d @f @j @k @l @; _
+)
+
+(deflayer arrows
+  _ _ _ del _ down up right _ left 
+)
