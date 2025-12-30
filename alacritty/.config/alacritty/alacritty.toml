@@ -1,6 +1,9 @@
 # $HOME/.config/alacritty/alacritty.toml
 # by Rito Ghosh 2023-10-06
 
+[env]
+TERM = "xterm-256color"
+
 # Alacritty now uses TOML formatting for its config files.
 # This is a simple example.
 
